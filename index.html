@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dodelink.nl - Fix je kapotte links in Shopify snel en eenvoudig</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #0078D4 0%, #106EBE 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        .hero {
+            background: linear-gradient(135deg, #0078D4 0%, #106EBE 100%);
+            color: white;
+            text-align: center;
+            padding: 150px 0 100px;
+            margin-top: 80px;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        .cta-button {
+            background: #0078D4;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,120,212,0.3);
+        }
+        section {
+            padding: 80px 0;
+        }
+        .benefits {
+            background: white;
+        }
+        .benefits h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .benefit-card {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        .benefit-card i {
+            font-size: 3rem;
+            color: #0078D4;
+            margin-bottom: 1rem;
+        }
+        .how-it-works {
+            background: #f9f9f9;
+        }
+        .how-it-works h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .step-number {
+            background: #0078D4;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        .pricing {
+            background: white;
+        }
+        .pricing h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+        .price-card {
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 2rem;
+            max-width: 400px;
+            margin: 0 auto;
+            transition: border-color 0.3s;
+        }
+        .price-card:hover {
+            border-color: #0078D4;
+        }
+        .price {
+            font-size: 3rem;
+            color: #0078D4;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .contact {
+            background: linear-gradient(135deg, #0078D4 0%, #106EBE 100%);
+            color: white;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact form {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact input, .contact textarea {
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .contact button {
+            background: #0078D4;
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact button:hover {
+            background: #106EBE;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .steps {
+                flex-direction: column;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">Dodelink.nl</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#benefits">Voordelen</a></li>
+                <li><a href="#how">Hoe het werkt</a></li>
+                <li><a href="#pricing">Prijs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>Problemen met kapotte links in je Shopify-winkel?</h1>
+            <p>Wij fixen ze binnen minuten! Geen gedoe, geen technische kennis nodig. Focus op je business, wij regelen de rest.</p>
+            <a href="#contact" class="cta-button">Fix mijn links nu - €15</a>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <h2>Waarom kiezen voor Dodelink?</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Snel & Eenvoudig</h3>
+                    <p>Je links gefixt in minder dan 10 minuten, terwijl jij koffie drinkt.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-euro-sign"></i>
+                    <h3>Goedkoop</h3>
+                    <p>Slechts €15 per store - geen abonnementskosten, puur resultaat.</p>
+                </div>
+                <div class="benefit-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Veilig & Betrouwbaar</h3>
+                    <p>We gebruiken veilige toegang en sturen een gedetailleerd rapport na afloop.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how" class="how-it-works">
+        <div class="container">
+            <h2>Hoe het werkt</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div>
+                        <h3>Neem contact op</h3>
+                        <p>Stuur ons je Shopify URL via het formulier. Betaal veilig met iDEAL.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div>
+                        <h3>We scannen & fixen</h3>
+                        <p>Met een snelle scan vinden we alle kapotte links en zetten redirects op.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div>
+                        <h3>Klaar!</h3>
+                        <p>Ontvang een rapport en geniet van een soepele winkelervaring.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2>Eenvoudige Prijs</h2>
+            <div class="price-card">
+                <h3>Fix je hele store</h3>
+                <div class="price">€15</div>
+                <p>Eénmalig per scan en fix. Geen verborgen kosten. Start direct!</p>
+                <a href="#contact" class="cta-button">Bestel nu</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Klaar om te starten?</h2>
+            <p>Laat ons je store URL weten, en we fixen het meteen.</p>
+            <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST"> <!-- Vervang YOUR_FORM_ID door je Formspree ID -->
+                <input type="text" name="name" placeholder="Je naam" required>
+                <input type="email" name="email" placeholder="Je e-mail" required>
+                <input type="url" name="store" placeholder="Je Shopify URL (bijv. mystore.myshopify.com)" required>
+                <textarea name="message" rows="4" placeholder="Eventuele extra info..."></textarea>
+                <button type="submit">Fix mijn links - Betaal €15</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dodelink.nl. Alle rechten voorbehouden. | <a href="#" style="color: #ccc;">Privacy Policy</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
