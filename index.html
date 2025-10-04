@@ -267,20 +267,39 @@
             color: #666;
         }
         
+        .testimonials-section {
+            margin: 60px 0;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        
         .testimonial {
-            margin: 30px 0;
-            padding: 20px;
+            margin: 0;
+            padding: 25px;
             background: #f9f9f9;
             border-left: 4px solid #0078d4;
-            border-radius: 4px;
+            border-radius: 8px;
             font-style: italic;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+        
+        .testimonial:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
         
         .testimonial-author {
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
             font-style: normal;
             color: #0078d4;
+            font-size: 0.95rem;
         }
         
         @media (max-width: 600px) {
@@ -300,6 +319,15 @@
             .cta-button {
                 padding: 14px 24px;
                 font-size: 16px;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .testimonial {
+                padding: 20px;
             }
         }
     </style>
@@ -379,9 +407,40 @@
         </div>
     </div>
 
-    <div class="testimonial">
-        "In 8 minuten waren alle 34 kapotte links gefixt. Mijn conversie steeg binnen een week met 19%. Beste investering ooit!"
-        <div class="testimonial-author">- Marcus V., FitnessGear.nl</div>
+    <div class="testimonials-section">
+        <h2 style="text-align: center; color: #333; margin-bottom: 40px;">Wat Andere Shopify Ondernemers Zeggen</h2>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                "In 8 minuten waren alle 34 kapotte links gefixt. Mijn conversie steeg binnen een week met 19%. Beste investering ooit!"
+                <div class="testimonial-author">- Marcus V., FitnessGear.nl</div>
+            </div>
+            
+            <div class="testimonial">
+                "Had 67 404-errors die ik niet eens wist dat ze bestonden. Google ranking ging van pagina 3 naar pagina 1 in 3 weken tijd."
+                <div class="testimonial-author">- Sarah K., BeautyBox</div>
+            </div>
+            
+            <div class="testimonial">
+                "Verloor €400 per maand door kapotte product links. Na de fix direct 28% meer verkopen. Heel tevreden!"
+                <div class="testimonial-author">- Tom R., TechGadgets</div>
+            </div>
+            
+            <div class="testimonial">
+                "Eindelijk geen klachten meer van klanten over 'pagina niet gevonden'. Professionele service, snel resultaat."
+                <div class="testimonial-author">- Lisa M., KinderMode</div>
+            </div>
+            
+            <div class="testimonial">
+                "92 redirects ingesteld in 6 minuten. Mijn SEO-consultant was onder de indruk van de snelheid en kwaliteit."
+                <div class="testimonial-author">- Jeroen B., SportWinkel</div>
+            </div>
+            
+            <div class="testimonial">
+                "Google Search Console liet eindelijk weer groene cijfers zien. Organic traffic steeg met 45% in een maand."
+                <div class="testimonial-author">- Emma W., GardenShop</div>
+            </div>
+        </div>
     </div>
 
     <div class="process-section">
