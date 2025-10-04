@@ -11,8 +11,6 @@
     <meta property="og:image" content="shopify-link-checker-404-fix.png">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://ardrotterdam.github.io/dodelink/">
-    
-    <!-- Schema.org structured data -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -34,489 +32,177 @@
       }
     }
     </script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
-            color: white;
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            min-height: 100vh;
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
         }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-        }
-        
-        .hero-image {
-            margin: 20px 0 40px 0;
-        }
-        
-        .hero-image img {
-            max-width: 95%;
-            height: auto;
-            border-radius: 16px;
-            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
-            transform: scale(1);
+        .hover-scale {
             transition: transform 0.3s ease;
         }
-        
-        .hero-image img:hover {
-            transform: scale(1.02);
-        }
-        
-        .hero-title {
-            font-size: 2.2rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            line-height: 1.2;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            opacity: 0.9;
-        }
-        
-        .hero-cta {
-            font-size: 1rem;
-            margin-bottom: 30px;
-            opacity: 0.95;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background: #fff;
-            color: #1976d2;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            margin: 20px 10px;
-            font-size: 1rem;
-            transition: transform 0.2s ease;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-        }
-        
-        .content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            color: white;
-        }
-        
-        .content h2 {
-            color: white;
-        }
-        
-        .notice {
-            background: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid #ff9800;
-            padding: 15px;
-            margin: 30px 0;
-            border-radius: 8px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            color: white;
-        }
-        
-        .notice strong {
-            color: #ffcc02;
-        }
-        
-        .stats {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            color: white;
-            padding: 40px 20px;
-            margin: 40px -20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 20px;
-            text-align: center;
-        }
-        
-        .stat {
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .stat-number {
-            font-size: 2rem;
-            font-weight: bold;
-            color: white;
-            display: block;
-        }
-        
-        .stat-label {
-            font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.9);
-            margin-top: 5px;
-        }
-        
-        h2 {
-            font-size: 1.8rem;
-            margin: 40px 0 20px 0;
-            color: white;
-            text-align: center;
-        }
-        
-        .problem-section {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            color: white;
-            padding: 40px 20px;
-            margin: 40px -20px;
-        }
-        
-        .problem-section h2 {
-            color: white;
-            margin-bottom: 30px;
-        }
-        
-        .section {
-            margin: 30px 0;
-        }
-        
-        .item {
-            margin: 15px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-left: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .item.problem {
-            background: rgba(255, 255, 255, 0.1);
-            border-left-color: rgba(255, 255, 255, 0.6);
-        }
-        
-        .item.solution {
-            background: rgba(255, 255, 255, 0.15);
-            border-left-color: #ffcc02;
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-        
-        .item strong {
-            color: inherit;
-        }
-        
-        .testimonials {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px 20px;
-            margin: 40px -20px;
-            backdrop-filter: blur(10px);
-            border-radius: 12px;
-        }
-        
-        .testimonials h2 {
-            margin-bottom: 30px;
-            color: white;
-        }
-        
-        .testimonial {
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border-left: 4px solid rgba(255, 255, 255, 0.6);
-            border-radius: 8px;
-            font-style: italic;
-            color: white;
-            backdrop-filter: blur(10px);
-        }
-        
-        .testimonial-author {
-            font-weight: bold;
-            margin-top: 10px;
-            font-style: normal;
-            color: #ffcc02;
-            font-size: 0.9rem;
-        }
-        
-        .process {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            color: white;
-            padding: 40px 20px;
-            margin: 40px -20px;
-        }
-        
-        .process h2 {
-            color: white;
-            margin-bottom: 30px;
-        }
-        
-        .step {
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            display: flex;
-            align-items: flex-start;
-            gap: 15px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .step-number {
-            background: white;
-            color: #1976d2;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 14px;
-            flex-shrink: 0;
-        }
-        
-        .step-content {
-            flex: 1;
-            color: white;
-        }
-        
-        .final-form {
-            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
-            color: white;
-            text-align: center;
-            padding: 40px 20px;
-            margin: 40px -20px 0 -20px;
-        }
-        
-        .final-form h2 {
-            color: white;
-            margin-bottom: 20px;
-        }
-        
-        .form-container {
-            max-width: 400px;
-            margin: 30px auto;
-        }
-        
-        .form-input {
-            width: 100%;
-            padding: 12px;
-            border: none;
-            border-radius: 6px;
-            margin-bottom: 15px;
-            font-size: 16px;
-        }
-        
-        .form-button {
-            background: #fff;
-            color: #1976d2;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 6px;
-            font-weight: 600;
-            cursor: pointer;
-            font-size: 16px;
-            transition: transform 0.2s ease;
-        }
-        
-        .form-button:hover {
-            transform: translateY(-2px);
-        }
-        
-        .security {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            opacity: 0.9;
-        }
-        
-        .extra-info {
-            margin-top: 25px;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        @media (max-width: 600px) {
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-            
-            .stat {
-                padding: 15px;
-            }
-            
-            .stat-number {
-                font-size: 1.5rem;
-            }
-            
-            .step {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
+        .hover-scale:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
-<body>
-    <div class="hero-section">
-        <div class="hero-image">
-            <img src="shopify-link-checker-404-fix.png" alt="Shopify link checker tool - 404 errors automatisch fixen en redirects instellen">
+<body class="font-sans text-gray-800 bg-gray-50">
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <a href="#" class="text-2xl font-bold text-blue-600">🔗 DodeLink.nl</a>
+                <ul class="flex space-x-6">
+                    <li><a href="#probleem" class="text-gray-600 hover:text-blue-600 transition">Het Probleem</a></li>
+                    <li><a href="#oplossing" class="text-gray-600 hover:text-blue-600 transition">Oplossing</a></li>
+                    <li><a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition">Reviews</a></li>
+                    <li><a href="#proces" class="text-gray-600 hover:text-blue-600 transition">Hoe het werkt</a></li>
+                    <li><a href="#scan-form" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Start Scan</a></li>
+                </ul>
+            </div>
         </div>
-        
-        <h1 class="hero-title">🚨 Jouw Shopify winkel verliest NU klanten door kapotte links</h1>
-        <p class="hero-subtitle">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
-        <p class="hero-cta">Scan je winkel GRATIS en fix alle 404 errors in 10 minuten.</p>
-        
-        <a href="#scan-form" class="cta-button">Start Gratis Scan</a>
-    </div>
+    </nav>
 
-    <div class="content">
-        <div class="notice">
-            <strong>Vandaag al 27 Shopify winkels geholpen</strong> - Nog 8 scans beschikbaar vandaag
+    <section class="hero-section bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-20">
+        <div class="hero-image max-w-4xl mx-auto mb-8 animate-fadeInUp">
+            <img src="shopify-link-checker-404-fix.png" alt="Shopify link checker tool - 404 errors automatisch fixen en redirects instellen" class="w-full rounded-lg shadow-2xl hover-scale">
         </div>
-    </div>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">🚨 Jouw Shopify winkel verliest NU klanten door kapotte links</h1>
+        <p class="text-lg md:text-xl mb-6 animate-fadeInUp">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
+        <p class="text-md mb-8 animate-fadeInUp">Scan je winkel GRATIS en fix alle 404 errors in 10 minuten.</p>
+        <a href="#scan-form" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition hover-scale animate-fadeInUp">Start Gratis Scan</a>
+    </section>
 
-    <div class="stats">
-        <div class="stat">
-            <span class="stat-number">1.847</span>
-            <span class="stat-label">Winkels gefixt</span>
+    <section class="max-w-4xl mx-auto px-4 py-12">
+        <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg text-center animate-fadeInUp">
+            <p class="text-gray-800"><strong class="text-yellow-600">Vandaag al 27 Shopify winkels geholpen</strong> - Nog 8 scans beschikbaar vandaag</p>
         </div>
-        <div class="stat">
-            <span class="stat-number">€342k</span>
-            <span class="stat-label">Omzet gered</span>
-        </div>
-        <div class="stat">
-            <span class="stat-number">7 min</span>
-            <span class="stat-label">Gem. fix tijd</span>
-        </div>
-        <div class="stat">
-            <span class="stat-number">4.8★</span>
-            <span class="stat-label">Beoordeling</span>
-        </div>
-    </div>
+    </section>
 
-    <div class="problem-section">
-        <h2>Elke kapotte link schaadt je ranking, verkopen en reputatie</h2>
-        
-        <div class="section">
-            <div class="item problem">
-                <strong>-2 posities per 10 kapotte links.</strong> Google crawlt je site, vindt errors, en straft je af. Je concurrenten stijgen, jij daalt.
+    <section class="stats bg-blue-50 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
+                <span class="text-3xl font-bold text-blue-600">1.847</span>
+                <span class="block text-gray-600">Winkels gefixt</span>
             </div>
-            
-            <div class="item problem">
-                <strong>88% verlaat je site na een 404 pagina.</strong> Ze komen voor een product, vinden een error, en kopen bij de concurrent.
+            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
+                <span class="text-3xl font-bold text-blue-600">€342k</span>
+                <span class="block text-gray-600">Omzet gered</span>
             </div>
-            
-            <div class="item problem">
-                <strong>Gemiddeld €247/maand verlies per 10 kapotte links.</strong> Dat is €2.964 per jaar dat zomaar wegloopt.
+            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
+                <span class="text-3xl font-bold text-blue-600">7 min</span>
+                <span class="block text-gray-600">Gem. fix tijd</span>
             </div>
-            
-            <div class="item problem">
-                <strong>Kapotte links = geen vertrouwen.</strong> Klanten denken: "Als hun website niet werkt, wat dan met mijn bestelling?"
-            </div>
-        </div>
-    </div>
-
-    <div class="content">
-        <h2>Link Checker: Alle 404 en 410 errors gevonden en gefixt in 10 minuten</h2>
-        
-        <div class="section">
-            <div class="item solution">
-                <strong>We crawlen je hele Shopify winkel</strong> en vinden elke kapotte link, 404 error, en 410 redirect.
-            </div>
-            
-            <div class="item solution">
-                <strong>We stellen automatisch redirects in.</strong> Oude links leiden naar de juiste pagina's. Geen verloren bezoekers meer.
-            </div>
-            
-            <div class="item solution">
-                <strong>Gedetailleerd rapport</strong> met alle gevonden errors, toegepaste fixes en SEO aanbevelingen voor je winkel.
-            </div>
-            
-            <div class="item solution">
-                <strong>Je hele winkel gescand en gefixt</strong> in minder dan 10 minuten. Geen wachten, direct resultaat.
+            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
+                <span class="text-3xl font-bold text-blue-600">4.8★</span>
+                <span class="block text-gray-600">Beoordeling</span>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="testimonials">
-        <div class="content">
-            <h2>Wat andere Shopify ondernemers zeggen</h2>
-            
-            <div class="testimonial">
-                "In 8 minuten waren alle 34 kapotte links gefixt. Mijn conversie steeg binnen een week met 19%. Beste investering ooit!"
-                <div class="testimonial-author">- Marcus V., FitnessGear.nl</div>
-            </div>
-            
-            <div class="testimonial">
-                "Had 67 404-errors die ik niet eens wist dat ze bestonden. Google ranking ging van pagina 3 naar pagina 1 in 3 weken tijd."
-                <div class="testimonial-author">- Sarah K., BeautyBox</div>
-            </div>
-            
-            <div class="testimonial">
-                "Verloor €400 per maand door kapotte product links. Na de fix direct 28% meer verkopen. Heel tevreden!"
-                <div class="testimonial-author">- Tom R., TechGadgets</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="content">
-        <div class="process">
-            <h2>Zo werkt het</h2>
-            
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <strong>Geef ons je winkel URL</strong> via het formulier hieronder. Betaal veilig met iDEAL (€15).
+    <section class="problem-section bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12" id="probleem">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Elke kapotte link schaadt je ranking, verkopen en reputatie</h2>
+            <div class="space-y-4">
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
+                    <p><strong>-2 posities per 10 kapotte links.</strong> Google crawlt je site, vindt errors, en straft je af. Je concurrenten stijgen, jij daalt.</p>
                 </div>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <strong>Onze link checker crawlt</strong> je volledige site, vindt alle 404/410 errors en stelt automatisch redirects in.
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
+                    <p><strong>88% verlaat je site na een 404 pagina.</strong> Ze komen voor een product, vinden een error, en kopen bij de concurrent.</p>
                 </div>
-            </div>
-            
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <strong>Binnen 10 minuten ontvang je</strong> een volledig rapport met alle fixes en SEO aanbevelingen.
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
+                    <p><strong>Gemiddeld €247/maand verlies per 10 kapotte links.</strong> Dat is €2.964 per jaar dat zomaar wegloopt.</p>
+                </div>
+                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
+                    <p><strong>Kapotte links = geen vertrouwen.</strong> Klanten denken: "Als hun website niet werkt, wat dan met mijn bestelling?"</p>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="final-form" id="scan-form">
-        <h2>Eenmalig betalen, voor altijd gefixt</h2>
-        <p><strong>Vul je Shopify URL in en we beginnen direct met de scan</strong></p>
-        
-        <div class="form-container">
-            <form action="#" method="POST">
-                <input type="url" class="form-input" name="shopify_url" placeholder="jouwwinkel.myshopify.com" required>
-                <button type="submit" class="form-button">Start Scan - €15</button>
-            </form>
+    <section class="content max-w-4xl mx-auto px-4 py-12" id="oplossing">
+        <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Link Checker: Alle 404 en 410 errors gevonden en gefixt in 10 minuten</h2>
+        <div class="space-y-4">
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
+                <p><strong>We crawlen je hele Shopify winkel</strong> en vinden elke kapotte link, 404 error, en 410 redirect.</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
+                <p><strong>We stellen automatisch redirects in.</strong> Oude links leiden naar de juiste pagina's. Geen verloren bezoekers meer.</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
+                <p><strong>Gedetailleerd rapport</strong> met alle gevonden errors, toegepaste fixes en SEO aanbevelingen voor je winkel.</p>
+            </div>
+            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
+                <p><strong>Je hele winkel gescand en gefixt</strong> in minder dan 10 minuten. Geen wachten, direct resultaat.</p>
+            </div>
         </div>
-        
-        <p class="security">🔒 Veilig betalen met iDEAL • 💯 Geld terug garantie als niet tevreden</p>
-        
-        <div class="extra-info">
-            <p>⚡ Gemiddelde verwerkingstijd: 7 minuten</p>
-            <p>📈 Gemiddelde ranking verbetering: +2.1 posities</p>
+    </section>
+
+    <section class="testimonials bg-blue-50 py-12" id="testimonials">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Wat andere Shopify ondernemers zeggen</h2>
+            <div class="space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-md italic animate-fadeInUp">
+                    <p>"In 8 minuten waren alle 34 kapotte links gefixt. Mijn conversie steeg binnen een week met 19%. Beste investering ooit!"</p>
+                    <p class="font-bold text-yellow-600 mt-2 not-italic">- Marcus V., FitnessGear.nl</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md italic animate-fadeInUp">
+                    <p>"Had 67 404-errors die ik niet eens wist dat ze bestonden. Google ranking ging van pagina 3 naar pagina 1 in 3 weken tijd."</p>
+                    <p class="font-bold text-yellow-600 mt-2 not-italic">- Sarah K., BeautyBox</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md italic animate-fadeInUp">
+                    <p>"Verloor €400 per maand door kapotte product links. Na de fix direct 28% meer verkopen. Heel tevreden!"</p>
+                    <p class="font-bold text-yellow-600 mt-2 not-italic">- Tom R., TechGadgets</p>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="process bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12" id="proces">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Zo werkt het</h2>
+            <div class="space-y-6">
+                <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp">
+                    <div class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">1</div>
+                    <div><p><strong>Geef ons je winkel URL</strong> via het formulier hieronder. Betaal veilig met iDEAL (€15).</p></div>
+                </div>
+                <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp">
+                    <div class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">2</div>
+                    <div><p><strong>Onze link checker crawlt</strong> je volledige site, vindt alle 404/410 errors en stelt automatisch redirects in.</p></div>
+                </div>
+                <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp">
+                    <div class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">3</div>
+                    <div><p><strong>Binnen 10 minuten ontvang je</strong> een volledig rapport met alle fixes en SEO aanbevelingen.</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-form bg-blue-50 py-12" id="scan-form">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-6 animate-fadeInUp">Eenmalig betalen, voor altijd gefixt</h2>
+            <p class="text-lg mb-8 animate-fadeInUp"><strong>Vul je Shopify URL in en we beginnen direct met de scan</strong></p>
+            <div class="max-w-md mx-auto">
+                <div class="relative">
+                    <input type="url" name="shopify_url" placeholder="jouwwinkel.myshopify.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <button type="submit" onclick="handleSubmit()" class="mt-4 w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition hover-scale">Start Scan - €15</button>
+                </div>
+                <p class="mt-4 text-sm text-gray-600 animate-fadeInUp">🔒 Veilig betalen met iDEAL • 💯 Geld terug garantie als niet tevreden</p>
+                <div class="mt-4 text-sm text-gray-600 animate-fadeInUp">
+                    <p>⚡ Gemiddelde verwerkingstijd: 7 minuten</p>
+                    <p>📈 Gemiddelde ranking verbetering: +2.1 posities</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script>
         // Smooth scrolling
@@ -530,11 +216,15 @@
         });
 
         // Form handling
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const url = this.querySelector('input[name="shopify_url"]').value;
-            alert(`Scan gestart voor: ${url}\n\nJe wordt doorgestuurd naar de betaalpagina...`);
-        });
+        function handleSubmit() {
+            const urlInput = document.querySelector('input[name="shopify_url"]');
+            const url = urlInput.value;
+            if (url) {
+                alert(`Scan gestart voor: ${url}\n\nJe wordt doorgestuurd naar de betaalpagina...`);
+            } else {
+                alert('Vul een geldige Shopify URL in.');
+            }
+        }
     </script>
 </body>
 </html>
