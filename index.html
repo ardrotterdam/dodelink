@@ -1,443 +1,240 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shopify Link Checker | 404 Errors Automatisch Fixen | Redirects Instellen</title>
-    <meta name="description" content="Link checker voor Shopify: scan en fix 404 errors in 10 minuten. Automatische redirects instellen. Voorkom omzetverlies door kapotte links. €15 eenmalig.">
-    <meta name="keywords" content="link checker, shopify link checker, 404 errors fixen, redirects instellen, shopify seo tool, dode links checker">
-    <meta property="og:title" content="Shopify Link Checker - 404 Errors Automatisch Fixen">
-    <meta property="og:description" content="Link checker voor Shopify: scan en fix 404 errors in 10 minuten. Automatische redirects instellen.">
-    <meta property="og:image" content="shopify-link-checker-404-fix.png">
-    <meta property="og:type" content="website">
-    <link rel="canonical" href="https://ardrotterdam.github.io/dodelink/">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Shopify Link Checker",
-      "description": "Link checker tool voor Shopify winkels om 404 errors te vinden en automatisch redirects in te stellen",
-      "applicationCategory": "SEO Tool",
-      "operatingSystem": "Web-based",
-      "offers": {
-        "@type": "Offer",
-        "price": "15",
-        "priceCurrency": "EUR",
-        "availability": "https://schema.org/InStock"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "1847"
-      }
-    }
-    </script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <style>
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .animate-fadeInUp {
-            animation: fadeInUp 0.6s ease-out forwards;
-        }
-        .hover-scale {
-            transition: transform 0.3s ease;
-        }
-        .hover-scale:hover {
-            transform: scale(1.05);
-        }
-        .nav-link {
-            position: relative;
-            display: inline-block;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #1976d2;
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-        .nav-link:hover {
-            color: #1976d2;
-            transform: translateY(-2px);
-        }
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            gap: 1.5rem;
-        }
-        .nav-menu li {
-            display: flex;
-            align-items: center;
-        }
-        .nav-menu a {
-            text-decoration: none;
-            font-weight: 500;
-        }
-        /* Hamburger menu for mobile */
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-        /* FAQ Accordion Styles */
-        .faq-item {
-            border-bottom: 1px solid #e5e7eb;
-        }
-        .faq-question {
-            cursor: pointer;
-            padding: 1rem 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: color 0.3s ease;
-        }
-        .faq-question:hover {
-            color: #1976d2;
-        }
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-        .faq-answer.open {
-            max-height: 200px;
-            padding-bottom: 1rem;
-        }
-        @media (max-width: 640px) {
-            .nav-menu {
-                display: none;
-                flex-direction: column;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: white;
-                padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            }
-            .nav-menu.active {
-                display: flex;
-            }
-            .hamburger {
-                display: block;
-            }
-            .nav-link {
-                width: 100%;
-                padding: 0.5rem 0;
-            }
-            .hero-title {
-                font-size: 1.8rem;
-            }
-            .hero-subtitle, .hero-cta {
-                font-size: 0.9rem;
-            }
-            .stats {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .stat {
-                padding: 1rem;
-            }
-            .step {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
-            }
-            .faq-question {
-                font-size: 1rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dodelink | Shopify Link Checker – 404-fixes & Redirects in 10 minuten</title>
+  <meta name="description" content="Dodelink scant je Shopify-winkel, vindt kapotte links (404/410) en zet automatisch 301-redirects. Voorkom omzetverlies en SEO-schade. €15 eenmalig." />
+  <meta name="keywords" content="dodelink, shopify link checker, 404 errors fixen, redirects instellen, shopify seo, kapotte links" />
+
+  <!-- Canonical & Open Graph -->
+  <link rel="canonical" href="https://dodelink.com/" />
+  <meta property="og:locale" content="nl_NL" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Dodelink – Shopify Link Checker" />
+  <meta property="og:description" content="Scan & fix 404's in 10 minuten. Automatische 301-redirects. €15 eenmalig." />
+  <meta property="og:url" content="https://dodelink.com/" />
+  <meta property="og:site_name" content="Dodelink" />
+  <meta property="og:image" content="/assets/shopify-link-checker-404-fix.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Tailwind (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
+  <style>
+    @keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: none;} }
+    .animate-fadeInUp{ animation: fadeInUp .6s ease-out forwards; }
+    .hover-scale{ transition: transform .25s ease; }
+    .hover-scale:hover{ transform: scale(1.04); }
+    .nav-link{ position:relative; display:inline-block; }
+    .nav-link:after{ content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:#1d4ed8; transition:width .25s ease; }
+    .nav-link:hover:after{ width:100%; }
+    .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
+    .faq-answer.open{ max-height:240px; padding-bottom:.75rem; }
+    @media (max-width:640px){ .nav-menu{ display:none; } .nav-menu.active{ display:flex; } }
+  </style>
+
+  <!-- Schema.org: Service + Offer + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Dodelink – Shopify Link Checker",
+    "url": "https://dodelink.com/",
+    "provider": {"@type":"Organization","name":"Dodelink","url":"https://dodelink.com"},
+    "serviceType": "SEO / Redirects",
+    "areaServed": "NL",
+    "offers": {"@type":"Offer","price":"15.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://dodelink.com/#checkout"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"Hoe snel is het klaar?","acceptedAnswer":{"@type":"Answer","text":"Meestal binnen 10 minuten na betaling. Bij heel grote shops kan het iets langer duren."}},
+      {"@type":"Question","name":"Wat krijg ik?","acceptedAnswer":{"@type":"Answer","text":"Een PDF-rapport met alle gevonden kapotte links, een CSV met redirects, en – indien gewenst – direct ingestelde 301-redirects."}},
+      {"@type":"Question","name":"Hebben jullie toegang tot mijn shop nodig?","acceptedAnswer":{"@type":"Answer","text":"Liefst een tijdelijk staff-account. Zonder toegang leveren we je een CSV en heldere handleiding om zelf te importeren."}},
+      {"@type":"Question","name":"Krijg ik geld terug als het niet lukt?","acceptedAnswer":{"@type":"Answer","text":"Ja. Niet goed? Binnen 7 dagen je geld terug."}}
+    ]
+  }
+  </script>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <a href="#" class="text-2xl font-bold text-blue-600">🔗 DodeLink.nl</a>
-                <div class="flex items-center">
-                    <ul class="nav-menu">
-                        <li><a href="#probleem" class="nav-link text-gray-600">Het Probleem</a></li>
-                        <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
-                        <li><a href="#testimonials" class="nav-link text-gray-600">Reviews</a></li>
-                        <li><a href="#proces" class="nav-link text-gray-600">Hoe het werkt</a></li>
-                        <li><a href="#faq" class="nav-link text-gray-600">FAQ</a></li>
-                        <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition hover-scale">Start Scan</a></li>
-                    </ul>
-                    <div class="hamburger text-blue-600 md:hidden" onclick="toggleMenu()">☰</div>
-                </div>
-            </div>
+  <!-- NAV -->
+  <nav class="bg-white shadow sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="#" class="text-2xl font-extrabold text-blue-600">🔗 Dodelink</a>
+        <div class="flex items-center">
+          <ul class="nav-menu flex gap-6 items-center">
+            <li><a href="#probleem" class="nav-link text-gray-600">Probleem</a></li>
+            <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
+            <li><a href="#reviews" class="nav-link text-gray-600">Reviews</a></li>
+            <li><a href="#proces" class="nav-link text-gray-600">Werkwijze</a></li>
+            <li><a href="#faq" class="nav-link text-gray-600">FAQ</a></li>
+            <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 hover-scale">Start Scan</a></li>
+          </ul>
+          <button class="hamburger text-blue-600 md:hidden" aria-label="Open menu" onclick="toggleMenu()">☰</button>
         </div>
-    </nav>
+      </div>
+    </div>
+  </nav>
 
-    <section class="hero-section bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-20">
-        <div class="hero-image max-w-4xl mx-auto mb-8 animate-fadeInUp">
-            <img src="shopify-link-checker-404-fix.png" alt="Shopify link checker tool - 404 errors automatisch fixen en redirects instellen" class="w-full rounded-lg shadow-2xl hover-scale">
+  <!-- HERO -->
+  <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-16">
+    <div class="max-w-4xl mx-auto px-4">
+      <img src="/assets/shopify-link-checker-404-fix.png" alt="Dodelink Shopify link checker – 404 errors automatisch fixen en redirects instellen" class="w-full rounded-lg shadow-2xl hover-scale mb-8 animate-fadeInUp" />
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-3 animate-fadeInUp">Fix kapotte links & 404's in 10 minuten</h1>
+      <p class="text-lg md:text-xl mb-2 animate-fadeInUp">Google straft 404's af. Bezoekers haken af. Dodelink fixt het – snel.</p>
+      <p class="mb-6 animate-fadeInUp">Eenmalig <strong>€15</strong> • Automatische 301-redirects • Rapport & CSV</p>
+      <a href="#scan-form" class="inline-block bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 hover-scale animate-fadeInUp">Start Gratis Scan</a>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF BAR -->
+  <section class="max-w-4xl mx-auto px-4 py-10">
+    <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg text-center animate-fadeInUp">
+      <p class="text-gray-800"><strong class="text-yellow-700">Vandaag al 27 Shopify-winkels geholpen</strong> – Nog 8 scans beschikbaar</p>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="bg-blue-50 py-10">
+    <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-white p-6 rounded-lg shadow text-center animate-fadeInUp"><span class="text-3xl font-bold text-blue-600">1.847</span><span class="block text-gray-600">Winkels gefixt</span></div>
+      <div class="bg-white p-6 rounded-lg shadow text-center animate-fadeInUp"><span class="text-3xl font-bold text-blue-600">€342k</span><span class="block text-gray-600">Omzet gered</span></div>
+      <div class="bg-white p-6 rounded-lg shadow text-center animate-fadeInUp"><span class="text-3xl font-bold text-blue-600">7 min</span><span class="block text-gray-600">Gem. fix-tijd</span></div>
+      <div class="bg-white p-6 rounded-lg shadow text-center animate-fadeInUp"><span class="text-3xl font-bold text-blue-600">4.8★</span><span class="block text-gray-600">Beoordeling</span></div>
+    </div>
+  </section>
+
+  <!-- PROBLEEM -->
+  <section id="probleem" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Elke kapotte link schaadt ranking, omzet en vertrouwen</h2>
+      <div class="space-y-4">
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp"><p><strong>-2 posities per 10 kapotte links.</strong> Google crawlt je site, vindt errors en straft je af.</p></div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp"><p><strong>88% verlaat je site na een 404.</strong> Ze kopen bij de concurrent.</p></div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp"><p><strong>Gemiddeld €247/maand verlies per 10 kapotte links.</strong> Dat tikt aan.</p></div>
+        <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp"><p><strong>Kapotte links = minder vertrouwen.</strong> "Als de site al niet werkt…"</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPLOSSING -->
+  <section id="oplossing" class="max-w-4xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Dodelink: vindt & fixt 404/410 + zet 301-redirects</h2>
+    <div class="space-y-4">
+      <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp"><p><strong>Volledige crawl van je Shopify-winkel.</strong> We vinden alle kapotte interne links.</p></div>
+      <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp"><p><strong>Automatische 301-redirects.</strong> Oude URL → juiste pagina. Geen weglopers meer.</p></div>
+      <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp"><p><strong>Rapport + CSV.</strong> Duidelijk overzicht van fouten, fixes en SEO-advies.</p></div>
+      <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp"><p><strong>Klaar binnen 10 minuten.</strong> Geen wachtrij. Direct resultaat.</p></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews" class="bg-blue-50 py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Wat klanten zeggen</h2>
+      <div class="space-y-6">
+        <div class="bg-white p-6 rounded-lg shadow italic animate-fadeInUp"><p>"In 8 minuten waren 34 kapotte links gefixt. Conversie +19% in een week. Beste €15 ooit!"</p><p class="font-bold text-yellow-600 mt-2 not-italic">– Marcus V., FitnessGear</p></div>
+        <div class="bg-white p-6 rounded-lg shadow italic animate-fadeInUp"><p>"67 404's opgelost en rankings van p3 naar p1 in 3 weken."</p><p class="font-bold text-yellow-600 mt-2 not-italic">– Sarah K., BeautyBox</p></div>
+        <div class="bg-white p-6 rounded-lg shadow italic animate-fadeInUp"><p>"€400/maand verlies stopgezet. Na fix direct +28% sales."</p><p class="font-bold text-yellow-600 mt-2 not-italic">– Tom R., TechGadgets</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCES -->
+  <section id="proces" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Zo werkt het</h2>
+      <div class="space-y-6">
+        <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp"><div class="bg-white text-blue-700 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">1</div><p><strong>Vul je winkel-URL in</strong> en betaal veilig met iDEAL/kaart (€15).</p></div>
+        <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp"><div class="bg-white text-blue-700 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">2</div><p><strong>Dodelink crawlt je site</strong>, vindt 404/410 en zet automatische 301-redirects.</p></div>
+        <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp"><div class="bg-white text-blue-700 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">3</div><p><strong>Ontvang je rapport</strong> (PDF + CSV) en eventuele extra SEO-tips.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="bg-gray-100 py-12">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Veelgestelde vragen</h2>
+      <div class="space-y-2">
+        <div class="bg-white p-4 rounded-lg shadow">
+          <button class="faq-question text-left w-full text-lg font-semibold flex justify-between" onclick="toggleFaq(this)">Wat is een link checker en hoe helpt het?<span class="text-blue-600">▼</span></button>
+          <div class="faq-answer text-gray-600">Een link checker scant je site op kapotte links. Dodelink vindt 404/410 en zet 301-redirects, zodat bezoekers en Google altijd de juiste pagina vinden.</div>
         </div>
-        <h1 class="hero-title text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">🚨 Jouw Shopify winkel verliest NU klanten door kapotte links</h1>
-        <p class="hero-subtitle text-lg md:text-xl mb-6 animate-fadeInUp">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
-        <p class="hero-cta text-md mb-8 animate-fadeInUp">Scan je winkel GRATIS en fix alle 404 errors in 10 minuten.</p>
-        <a href="#scan-form" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition hover-scale animate-fadeInUp">Start Gratis Scan</a>
-    </section>
-
-    <section class="max-w-4xl mx-auto px-4 py-12">
-        <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg text-center animate-fadeInUp">
-            <p class="text-gray-800"><strong class="text-yellow-600">Vandaag al 27 Shopify winkels geholpen</strong> - Nog 8 scans beschikbaar vandaag</p>
+        <div class="bg-white p-4 rounded-lg shadow">
+          <button class="faq-question text-left w-full text-lg font-semibold flex justify-between" onclick="toggleFaq(this)">Hoe stel ik redirects in voor Shopify?<span class="text-blue-600">▼</span></button>
+          <div class="faq-answer text-gray-600">Wij doen dit voor je: we importeren 301-redirects of leveren een CSV-bestand + handleiding zodat je het zelf kunt importeren.</div>
         </div>
-    </section>
-
-    <section class="stats bg-blue-50 py-12">
-        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
-                <span class="text-3xl font-bold text-blue-600">1.847</span>
-                <span class="block text-gray-600">Winkels gefixt</span>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
-                <span class="text-3xl font-bold text-blue-600">€342k</span>
-                <span class="block text-gray-600">Omzet gered</span>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
-                <span class="text-3xl font-bold text-blue-600">7 min</span>
-                <span class="block text-gray-600">Gem. fix tijd</span>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md text-center animate-fadeInUp">
-                <span class="text-3xl font-bold text-blue-600">4.8★</span>
-                <span class="block text-gray-600">Beoordeling</span>
-            </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+          <button class="faq-question text-left w-full text-lg font-semibold flex justify-between" onclick="toggleFaq(this)">Werkt dit zonder toegang tot mijn shop?<span class="text-blue-600">▼</span></button>
+          <div class="faq-answer text-gray-600">Ja. Met alleen je publiek toegankelijke URL leveren we een CSV en rapport. Met tijdelijk staff-account kunnen wij ook alles direct instellen.</div>
         </div>
-    </section>
-
-    <section class="problem-section bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12" id="probleem">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Elke kapotte link schaadt je ranking, verkopen en reputatie</h2>
-            <div class="space-y-4">
-                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
-                    <p><strong>-2 posities per 10 kapotte links.</strong> Google crawlt je site, vindt errors, en straft je af. Je concurrenten stijgen, jij daalt.</p>
-                </div>
-                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
-                    <p><strong>88% verlaat je site na een 404 pagina.</strong> Ze komen voor een product, vinden een error, en kopen bij de concurrent.</p>
-                </div>
-                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
-                    <p><strong>Gemiddeld €247/maand verlies per 10 kapotte links.</strong> Dat is €2.964 per jaar dat zomaar wegloopt.</p>
-                </div>
-                <div class="bg-white bg-opacity-10 p-6 rounded-lg border-l-4 border-white animate-fadeInUp">
-                    <p><strong>Kapotte links = geen vertrouwen.</strong> Klanten denken: "Als hun website niet werkt, wat dan met mijn bestelling?"</p>
-                </div>
-            </div>
+        <div class="bg-white p-4 rounded-lg shadow">
+          <button class="faq-question text-left w-full text-lg font-semibold flex justify-between" onclick="toggleFaq(this)">Bieden jullie garantie?<span class="text-blue-600">▼</span></button>
+          <div class="faq-answer text-gray-600">Ja. Niet tevreden? 7 dagen geld-terug-garantie.</div>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="content max-w-4xl mx-auto px-4 py-12" id="oplossing">
-        <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Link Checker: Alle 404 en 410 errors gevonden en gefixt in 10 minuten</h2>
-        <div class="space-y-4">
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
-                <p><strong>We crawlen je hele Shopify winkel</strong> en vinden elke kapotte link, 404 error, en 410 redirect.</p>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
-                <p><strong>We stellen automatisch redirects in.</strong> Oude links leiden naar de juiste pagina's. Geen verloren bezoekers meer.</p>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
-                <p><strong>Gedetailleerd rapport</strong> met alle gevonden errors, toegepaste fixes en SEO aanbevelingen voor je winkel.</p>
-            </div>
-            <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp">
-                <p><strong>Je hele winkel gescand en gefixt</strong> in minder dan 10 minuten. Geen wachten, direct resultaat.</p>
-            </div>
+  <!-- FORM / CHECKOUT -->
+  <section id="scan-form" class="bg-blue-50 py-12">
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold mb-6 animate-fadeInUp">Start je gratis scan – fixes in minuten</h2>
+      <p class="text-lg mb-8 animate-fadeInUp"><strong>Vul je Shopify-URL in en we beginnen direct</strong></p>
+      <div class="max-w-md mx-auto">
+        <div class="relative">
+          <input type="url" name="shopify_url" placeholder="jouwwinkel.myshopify.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" />
+          <button type="button" onclick="handleSubmit()" class="mt-4 w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 hover-scale">Start Scan – €15</button>
         </div>
-    </section>
+        <p class="mt-4 text-sm text-gray-600">🔒 Veilig betalen • 💯 Geld-terug-garantie</p>
+        <p class="mt-1 text-sm text-gray-600">⚡ Gemiddelde verwerking: 7 minuten</p>
+      </div>
+    </div>
+  </section>
 
-    <section class="testimonials bg-blue-50 py-12" id="testimonials">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Wat andere Shopify ondernemers zeggen</h2>
-            <div class="space-y-6">
-                <div class="bg-white p-6 rounded-lg shadow-md italic animate-fadeInUp">
-                    <p>"In 8 minuten waren alle 34 kapotte links gefixt. Mijn conversie steeg binnen een week met 19%. Beste investering ooit!"</p>
-                    <p class="font-bold text-yellow-600 mt-2 not-italic">- Marcus V., FitnessGear.nl</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md italic animate-fadeInUp">
-                    <p>"Had 67 404-errors die ik niet eens wist dat ze bestonden. Google ranking ging van pagina 3 naar pagina 1 in 3 weken tijd."</p>
-                    <p class="font-bold text-yellow-600 mt-2 not-italic">- Sarah K., BeautyBox</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md italic animate-fadeInUp">
-                    <p>"Verloor €400 per maand door kapotte product links. Na de fix direct 28% meer verkopen. Heel tevreden!"</p>
-                    <p class="font-bold text-yellow-600 mt-2 not-italic">- Tom R., TechGadgets</p>
-                </div>
-            </div>
-        </div>
-    </section>
+  <!-- FOOTER -->
+  <footer class="bg-white border-t">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-sm">
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2">Dodelink</h3>
+        <p>Shopify Link Checker & Redirects-service. Fix kapotte links, voorkom omzetverlies en verbeter je SEO.</p>
+      </div>
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2">Contact</h3>
+        <p>E-mail: <a class="text-blue-700 underline" href="mailto:info@dodelink.com">info@dodelink.com</a></p>
+        <p>Website: <a class="text-blue-700 underline" href="https://dodelink.com/">dodelink.com</a></p>
+      </div>
+      <div>
+        <h3 class="font-bold text-gray-800 mb-2">Juridisch</h3>
+        <p><a href="#" class="text-gray-600 hover:text-blue-700">Privacy</a> • <a href="#" class="text-gray-600 hover:text-blue-700">Voorwaarden</a></p>
+        <p class="text-gray-500 mt-2">© <span id="year"></span> Dodelink. Alle rechten voorbehouden.</p>
+      </div>
+    </div>
+  </footer>
 
-    <section class="process bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12" id="proces">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Zo werkt het</h2>
-            <div class="space-y-6">
-                <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp">
-                    <div class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">1</div>
-                    <div><p><strong>Geef ons je winkel URL</strong> via het formulier hieronder. Betaal veilig met iDEAL (€15).</p></div>
-                </div>
-                <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp">
-                    <div class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">2</div>
-                    <div><p><strong>Onze link checker crawlt</strong> je volledige site, vindt alle 404/410 errors en stelt automatisch redirects in.</p></div>
-                </div>
-                <div class="flex items-start bg-white bg-opacity-10 p-6 rounded-lg animate-fadeInUp">
-                    <div class="bg-white text-blue-600 w-8 h-8 rounded-full flex items-center justify-center font-bold mr-4">3</div>
-                    <div><p><strong>Binnen 10 minuten ontvang je</strong> een volledig rapport met alle fixes en SEO aanbevelingen.</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
+  <script>
+    // Smooth scrolling
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{ e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); if(window.innerWidth<=640) toggleMenu(); });
+    });
 
-    <!-- New FAQ Section -->
-    <section class="faq bg-gray-100 py-12" id="faq">
-        <div class="max-w-4xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Veelgestelde Vragen over Link Checker & SEO Tools</h2>
-            <div class="space-y-2">
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Wat is een link checker en hoe helpt het bij 404 errors?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Een link checker scant je website op kapotte links en 404 errors. Onze tool crawlt je Shopify winkel en fixt automatisch redirects, zodat bezoekers niet wegklikken door foutmeldingen.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Hoe stel ik redirects in voor Shopify?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Met onze redirects tool worden 301 redirects automatisch ingesteld voor dode links. Vul je URL in en we handelen de rest af in minder dan 10 minuten.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Wat is een backlink checker en heb ik die nodig?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Een backlink checker analyseert inkomende links naar je site. Voor Shopify optimalisatie focussen we op interne kapotte links, maar backlinks helpen je SEO ranking te verbeteren.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Hoe werkt een sitemap generator voor mijn webshop?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Onze sitemap generator creëert een XML sitemap voor Google Search Console. Dit helpt bij indexering en technische SEO voor je Shopify winkel.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Wat zijn canonical tags en waarom zijn ze belangrijk?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Canonical tags voorkomen dubbele content issues. Onze scan controleert en optimaliseert ze automatisch voor betere on-page SEO.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Hoe optimaliseer ik mijn Shopify voor mobile SEO?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Mobile SEO richt zich op responsive design en snelle laadtijden. Onze tool test en fixt mobile-vriendelijke links en redirects.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Wat is schema markup en hoe implementeer ik het?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Schema markup verbetert rich snippets in Google. We voegen het toe aan je Shopify site via ons rapport voor betere zichtbaarheid.
-                    </div>
-                </div>
-                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
-                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
-                        Hoe controleer ik interne links in mijn webshop?
-                        <span class="text-blue-600 ml-2">▼</span>
-                    </div>
-                    <div class="faq-answer text-gray-600">
-                        Met onze interne links checker scannen we alle navigatie en productlinks. Kapotte interne links leiden tot hogere bounce rates.
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    // Mobile menu toggle
+    function toggleMenu(){ const m=document.querySelector('.nav-menu'); m.classList.toggle('active'); m.classList.toggle('flex'); m.classList.toggle('flex-col'); }
 
-    <section class="final-form bg-blue-50 py-12" id="scan-form">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6 animate-fadeInUp">Eenmalige scan, nu je dodelinks gefixt</h2>
-            <p class="text-lg mb-8 animate-fadeInUp"><strong>Vul je Shopify URL in en we beginnen direct met de scan</strong></p>
-            <div class="max-w-md mx-auto">
-                <div class="relative">
-                    <input type="url" name="shopify_url" placeholder="jouwwinkel.myshopify.com" required class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600">
-                    <button type="submit" onclick="handleSubmit()" class="mt-4 w-full bg-blue-600 text-white p-3 rounded-lg font-semibold hover:bg-blue-700 transition hover-scale">Start Scan - €15</button>
-                </div>
-                <p class="mt-4 text-sm text-gray-600 animate-fadeInUp">🔒 Veilig betalen met iDEAL • 💯 Geld terug garantie als niet tevreden</p>
-                <div class="mt-4 text-sm text-gray-600 animate-fadeInUp">
-                    <p>⚡ Gemiddelde verwerkingstijd: 7 minuten</p>
-                    <p>📈 Gemiddelde ranking verbetering: +2.1 posities</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    // FAQ toggle
+    function toggleFaq(btn){ const ans=btn.parentElement.nextElementSibling || btn.nextElementSibling; const icon=btn.querySelector('span'); ans.classList.toggle('open'); icon.textContent= ans.classList.contains('open') ? '▲' : '▼'; }
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-                if (window.innerWidth <= 640) {
-                    toggleMenu(); // Close menu on mobile after click
-                }
-            });
-        });
+    // Form handling (placeholder)
+    function handleSubmit(){ const el=document.querySelector('input[name="shopify_url"]'); const url=el.value.trim(); if(!url){ alert('Vul een geldige Shopify-URL in.'); return; } alert(`Scan gestart voor: ${url}\n\nWe sturen je door naar de betaalpagina…`); }
 
-        // Form handling
-        function handleSubmit() {
-            const urlInput = document.querySelector('input[name="shopify_url"]');
-            const url = urlInput.value;
-            if (url) {
-                alert(`Scan gestart voor: ${url}\n\nJe wordt doorgestuurd naar de betaalpagina...`);
-            } else {
-                alert('Vul een geldige Shopify URL in.');
-            }
-        }
-
-        // Toggle mobile menu
-        function toggleMenu() {
-            const menu = document.querySelector('.nav-menu');
-            menu.classList.toggle('active');
-        }
-
-        // Toggle FAQ answers
-        function toggleFaq(element) {
-            const answer = element.nextElementSibling;
-            const icon = element.querySelector('span');
-            answer.classList.toggle('open');
-            icon.textContent = answer.classList.contains('open') ? '▲' : '▼';
-        }
-    </script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
