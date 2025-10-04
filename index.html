@@ -44,311 +44,351 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #fff;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
+            color: white;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            min-height: 100vh;
         }
         
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #d32f2f;
+        .hero-section {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
             text-align: center;
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            text-align: center;
-            margin-bottom: 40px;
-            color: #666;
-        }
-        
-        .main-cta {
-            text-align: center;
-            margin: 40px 0;
-            padding: 30px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border: 2px solid #e3f2fd;
+            padding: 40px 20px;
         }
         
         .hero-image {
-            margin-bottom: 25px;
+            margin: 20px 0 40px 0;
         }
         
         .hero-image img {
-            max-width: 100%;
+            max-width: 95%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 16px;
+            box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: scale(1.02);
+        }
+        
+        .hero-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .hero-cta {
+            font-size: 1rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
         }
         
         .cta-button {
-            background: #0078d4;
-            color: white;
-            padding: 16px 32px;
-            font-size: 18px;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            text-decoration: none;
             display: inline-block;
-            margin-bottom: 15px;
-            transition: background 0.3s ease;
+            background: #fff;
+            color: #1976d2;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 20px 10px;
+            font-size: 1rem;
+            transition: transform 0.2s ease;
         }
         
         .cta-button:hover {
-            background: #106ebe;
+            transform: translateY(-2px);
         }
         
-        .guarantee-text {
-            font-size: 14px;
-            color: #666;
-            margin-top: 10px;
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: white;
         }
         
-        .urgency-notice {
-            background: #fff3e0;
+        .content h2 {
+            color: white;
+        }
+        
+        .notice {
+            background: rgba(255, 255, 255, 0.15);
             border-left: 4px solid #ff9800;
             padding: 15px;
             margin: 30px 0;
-            border-radius: 4px;
+            border-radius: 8px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            color: white;
         }
         
-        .urgency-notice strong {
-            color: #f57c00;
+        .notice strong {
+            color: #ffcc02;
         }
         
-        .social-proof-stats {
-            display: flex;
-            justify-content: space-around;
-            margin: 40px 0;
-            padding: 20px;
-            background: #f5f5f5;
-            border-radius: 6px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .stat {
+        .stats {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            padding: 40px 20px;
+            margin: 40px -20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
             text-align: center;
         }
         
+        .stat {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
         .stat-number {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: bold;
-            color: #0078d4;
+            color: white;
             display: block;
         }
         
         .stat-label {
             font-size: 0.9rem;
-            color: #666;
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 5px;
         }
         
         h2 {
             font-size: 1.8rem;
             margin: 40px 0 20px 0;
-            color: #333;
+            color: white;
+            text-align: center;
         }
         
         .problem-section {
-            margin: 40px 0;
-        }
-        
-        .problem-item {
-            margin: 25px 0;
-            padding: 20px;
-            background: #fafafa;
-            border-left: 4px solid #d32f2f;
-            border-radius: 4px;
-        }
-        
-        .problem-item strong {
-            color: #d32f2f;
-        }
-        
-        .solution-section {
-            margin: 40px 0;
-        }
-        
-        .solution-item {
-            margin: 25px 0;
-            padding: 20px;
-            background: #f0f8ff;
-            border-left: 4px solid #0078d4;
-            border-radius: 4px;
-        }
-        
-        .solution-item strong {
-            color: #0078d4;
-        }
-        
-        .process-section {
-            margin: 40px 0;
-            padding: 30px;
-            background: #e3f2fd;
-            border-radius: 8px;
-        }
-        
-        .process-step {
-            margin: 20px 0;
-            padding: 15px;
-            background: white;
-            border-radius: 6px;
-            border-left: 4px solid #0078d4;
-        }
-        
-        .step-number {
-            background: #0078d4;
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
             color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-right: 15px;
-            font-size: 14px;
+            padding: 40px 20px;
+            margin: 40px -20px;
         }
         
-        .final-cta {
-            text-align: center;
-            margin: 50px 0;
-            padding: 40px;
-            background: #f0f8ff;
-            border-radius: 8px;
-            border: 2px solid #0078d4;
+        .problem-section h2 {
+            color: white;
+            margin-bottom: 30px;
         }
         
-        .url-form {
+        .section {
             margin: 30px 0;
         }
         
-        .url-input {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            margin-bottom: 15px;
+        .item {
+            margin: 15px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
         }
         
-        .url-input:focus {
-            outline: none;
-            border-color: #0078d4;
+        .item.problem {
+            background: rgba(255, 255, 255, 0.1);
+            border-left-color: rgba(255, 255, 255, 0.6);
         }
         
-        .submit-button {
-            background: #0078d4;
+        .item.solution {
+            background: rgba(255, 255, 255, 0.15);
+            border-left-color: #ffcc02;
             color: white;
-            padding: 12px 30px;
-            font-size: 16px;
-            font-weight: 600;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s ease;
+            backdrop-filter: blur(10px);
         }
         
-        .submit-button:hover {
-            background: #106ebe;
+        .item strong {
+            color: inherit;
         }
         
-        .security-note {
-            margin-top: 20px;
-            font-size: 14px;
-            color: #666;
+        .testimonials {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px 20px;
+            margin: 40px -20px;
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
         }
         
-        .testimonials-section {
-            margin: 60px 0;
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
+        .testimonials h2 {
+            margin-bottom: 30px;
+            color: white;
         }
         
         .testimonial {
-            margin: 0;
-            padding: 25px;
-            background: #f9f9f9;
-            border-left: 4px solid #0078d4;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 4px solid rgba(255, 255, 255, 0.6);
             border-radius: 8px;
             font-style: italic;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
-        }
-        
-        .testimonial:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            color: white;
+            backdrop-filter: blur(10px);
         }
         
         .testimonial-author {
             font-weight: bold;
-            margin-top: 15px;
+            margin-top: 10px;
             font-style: normal;
-            color: #0078d4;
-            font-size: 0.95rem;
+            color: #ffcc02;
+            font-size: 0.9rem;
+        }
+        
+        .process {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            padding: 40px 20px;
+            margin: 40px -20px;
+        }
+        
+        .process h2 {
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .step {
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .step-number {
+            background: white;
+            color: #1976d2;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+            color: white;
+        }
+        
+        .final-form {
+            background: linear-gradient(135deg, #1976d2 0%, #1565c0 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            margin: 40px -20px 0 -20px;
+        }
+        
+        .final-form h2 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        .form-container {
+            max-width: 400px;
+            margin: 30px auto;
+        }
+        
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .form-button {
+            background: #fff;
+            color: #1976d2;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 16px;
+            transition: transform 0.2s ease;
+        }
+        
+        .form-button:hover {
+            transform: translateY(-2px);
+        }
+        
+        .security {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        .extra-info {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            opacity: 0.8;
         }
         
         @media (max-width: 600px) {
-            body {
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            
+            .stat {
                 padding: 15px;
             }
             
-            h1 {
-                font-size: 2rem;
+            .stat-number {
+                font-size: 1.5rem;
             }
             
-            .social-proof-stats {
+            .step {
                 flex-direction: column;
+                text-align: center;
                 gap: 10px;
-            }
-            
-            .cta-button {
-                padding: 14px 24px;
-                font-size: 16px;
-            }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .testimonial {
-                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
-    <h1>🚨 Shopify Link Checker: Verlies NU klanten door kapotte links</h1>
-    <p class="subtitle">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
-    
-    <div class="main-cta">
+    <div class="hero-section">
         <div class="hero-image">
-            <img src="shopify-link-checker-404-fix.png" alt="Shopify link checker tool - 404 errors automatisch fixen en redirects instellen" style="max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 20px;">
+            <img src="shopify-link-checker-404-fix.png" alt="Shopify link checker tool - 404 errors automatisch fixen en redirects instellen">
         </div>
-        <a href="#scan-form" class="cta-button">Scan je winkel GRATIS - Fix in 10 minuten</a>
-        <p class="guarantee-text">✅ Binnen 10 minuten klaar • ✅ Eenmalig €15 • ✅ Geld terug garantie</p>
+        
+        <h1 class="hero-title">🚨 Jouw Shopify winkel verliest NU klanten door kapotte links</h1>
+        <p class="hero-subtitle">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
+        <p class="hero-cta">Scan je winkel GRATIS en fix alle 404 errors in 10 minuten.</p>
+        
+        <a href="#scan-form" class="cta-button">Start Gratis Scan</a>
     </div>
 
-    <div class="urgency-notice">
-        <strong>Vandaag al 27 Shopify winkels geholpen</strong> - Nog 8 scans beschikbaar vandaag
+    <div class="content">
+        <div class="notice">
+            <strong>Vandaag al 27 Shopify winkels geholpen</strong> - Nog 8 scans beschikbaar vandaag
+        </div>
     </div>
 
-    <div class="social-proof-stats">
+    <div class="stats">
         <div class="stat">
             <span class="stat-number">1.847</span>
             <span class="stat-label">Winkels gefixt</span>
@@ -367,50 +407,54 @@
         </div>
     </div>
 
-    <h2>Elke kapotte link schaadt je ranking, verkopen en reputatie</h2>
-    
     <div class="problem-section">
-        <div class="problem-item">
-            <strong>-2 posities per 10 kapotte links.</strong> Google crawlt je site, vindt errors, en straft je af. Je concurrenten stijgen, jij daalt.
-        </div>
+        <h2>Elke kapotte link schaadt je ranking, verkopen en reputatie</h2>
         
-        <div class="problem-item">
-            <strong>88% verlaat je site na een 404 pagina.</strong> Ze komen voor een product, vinden een error, en kopen bij de concurrent.
-        </div>
-        
-        <div class="problem-item">
-            <strong>Gemiddeld €247/maand verlies per 10 kapotte links.</strong> Dat is €2.964 per jaar dat zomaar wegloopt.
-        </div>
-        
-        <div class="problem-item">
-            <strong>Kapotte links = geen vertrouwen.</strong> Klanten denken: "Als hun website niet werkt, wat dan met mijn bestelling?"
+        <div class="section">
+            <div class="item problem">
+                <strong>-2 posities per 10 kapotte links.</strong> Google crawlt je site, vindt errors, en straft je af. Je concurrenten stijgen, jij daalt.
+            </div>
+            
+            <div class="item problem">
+                <strong>88% verlaat je site na een 404 pagina.</strong> Ze komen voor een product, vinden een error, en kopen bij de concurrent.
+            </div>
+            
+            <div class="item problem">
+                <strong>Gemiddeld €247/maand verlies per 10 kapotte links.</strong> Dat is €2.964 per jaar dat zomaar wegloopt.
+            </div>
+            
+            <div class="item problem">
+                <strong>Kapotte links = geen vertrouwen.</strong> Klanten denken: "Als hun website niet werkt, wat dan met mijn bestelling?"
+            </div>
         </div>
     </div>
 
-    <h2>Link Checker: Alle 404 en 410 errors gevonden en gefixt in 10 minuten</h2>
-    
-    <div class="solution-section">
-        <div class="solution-item">
-            <strong>We crawlen je hele Shopify winkel</strong> en vinden elke kapotte link, 404 error, en 410 redirect.
-        </div>
+    <div class="content">
+        <h2>Link Checker: Alle 404 en 410 errors gevonden en gefixt in 10 minuten</h2>
         
-        <div class="solution-item">
-            <strong>We stellen automatisch redirects in.</strong> Oude links leiden naar de juiste pagina's. Geen verloren bezoekers meer.
-        </div>
-        
-        <div class="solution-item">
-            <strong>Gedetailleerd rapport</strong> met alle gevonden errors, toegepaste fixes en SEO aanbevelingen voor je winkel.
-        </div>
-        
-        <div class="solution-item">
-            <strong>Je hele winkel gescand en gefixt</strong> in minder dan 10 minuten. Geen wachten, direct resultaat.
+        <div class="section">
+            <div class="item solution">
+                <strong>We crawlen je hele Shopify winkel</strong> en vinden elke kapotte link, 404 error, en 410 redirect.
+            </div>
+            
+            <div class="item solution">
+                <strong>We stellen automatisch redirects in.</strong> Oude links leiden naar de juiste pagina's. Geen verloren bezoekers meer.
+            </div>
+            
+            <div class="item solution">
+                <strong>Gedetailleerd rapport</strong> met alle gevonden errors, toegepaste fixes en SEO aanbevelingen voor je winkel.
+            </div>
+            
+            <div class="item solution">
+                <strong>Je hele winkel gescand en gefixt</strong> in minder dan 10 minuten. Geen wachten, direct resultaat.
+            </div>
         </div>
     </div>
 
-    <div class="testimonials-section">
-        <h2 style="text-align: center; color: #333; margin-bottom: 40px;">Wat Andere Shopify Ondernemers Zeggen</h2>
-        
-        <div class="testimonials-grid">
+    <div class="testimonials">
+        <div class="content">
+            <h2>Wat andere Shopify ondernemers zeggen</h2>
+            
             <div class="testimonial">
                 "In 8 minuten waren alle 34 kapotte links gefixt. Mijn conversie steeg binnen een week met 19%. Beste investering ooit!"
                 <div class="testimonial-author">- Marcus V., FitnessGear.nl</div>
@@ -425,57 +469,50 @@
                 "Verloor €400 per maand door kapotte product links. Na de fix direct 28% meer verkopen. Heel tevreden!"
                 <div class="testimonial-author">- Tom R., TechGadgets</div>
             </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="process">
+            <h2>Zo werkt het</h2>
             
-            <div class="testimonial">
-                "Eindelijk geen klachten meer van klanten over 'pagina niet gevonden'. Professionele service, snel resultaat."
-                <div class="testimonial-author">- Lisa M., KinderMode</div>
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <strong>Geef ons je winkel URL</strong> via het formulier hieronder. Betaal veilig met iDEAL (€15).
+                </div>
             </div>
             
-            <div class="testimonial">
-                "92 redirects ingesteld in 6 minuten. Mijn SEO-consultant was onder de indruk van de snelheid en kwaliteit."
-                <div class="testimonial-author">- Jeroen B., SportWinkel</div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <strong>Onze link checker crawlt</strong> je volledige site, vindt alle 404/410 errors en stelt automatisch redirects in.
+                </div>
             </div>
             
-            <div class="testimonial">
-                "Google Search Console liet eindelijk weer groene cijfers zien. Organic traffic steeg met 45% in een maand."
-                <div class="testimonial-author">- Emma W., GardenShop</div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <strong>Binnen 10 minuten ontvang je</strong> een volledig rapport met alle fixes en SEO aanbevelingen.
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="process-section">
-        <h2 style="margin-top: 0; color: #0078d4;">Zo werkt het:</h2>
-        
-        <div class="process-step">
-            <span class="step-number">1</span>
-            <strong>Geef ons je winkel URL</strong> via het formulier hieronder. Betaal veilig met iDEAL (€15).
-        </div>
-        
-        <div class="process-step">
-            <span class="step-number">2</span>
-            <strong>Onze link checker crawlt</strong> je volledige site, vindt alle 404/410 errors en stelt automatisch redirects in.
-        </div>
-        
-        <div class="process-step">
-            <span class="step-number">3</span>
-            <strong>Binnen 10 minuten ontvang je</strong> een volledig rapport met alle fixes en SEO aanbevelingen.
-        </div>
-    </div>
-
-    <div class="final-cta" id="scan-form">
-        <h2 style="margin-top: 0;">Eenmalig betalen, voor altijd gefixt</h2>
+    <div class="final-form" id="scan-form">
+        <h2>Eenmalig betalen, voor altijd gefixt</h2>
         <p><strong>Vul je Shopify URL in en we beginnen direct met de scan</strong></p>
         
-        <form class="url-form" action="#" method="POST">
-            <div>
-                <input type="url" class="url-input" name="shopify_url" placeholder="jouwwinkel.myshopify.com" required>
-            </div>
-            <button type="submit" class="submit-button">Start Scan - €15</button>
-        </form>
+        <div class="form-container">
+            <form action="#" method="POST">
+                <input type="url" class="form-input" name="shopify_url" placeholder="jouwwinkel.myshopify.com" required>
+                <button type="submit" class="form-button">Start Scan - €15</button>
+            </form>
+        </div>
         
-        <p class="security-note">🔒 Veilig betalen met iDEAL • 💯 Geld terug garantie als niet tevreden</p>
+        <p class="security">🔒 Veilig betalen met iDEAL • 💯 Geld terug garantie als niet tevreden</p>
         
-        <div style="margin-top: 30px; font-size: 14px; color: #666;">
+        <div class="extra-info">
             <p>⚡ Gemiddelde verwerkingstijd: 7 minuten</p>
             <p>📈 Gemiddelde ranking verbetering: +2.1 posities</p>
         </div>
@@ -493,28 +530,11 @@
         });
 
         // Form handling
-        document.querySelector('.url-form').addEventListener('submit', function(e) {
+        document.querySelector('form').addEventListener('submit', function(e) {
             e.preventDefault();
             const url = this.querySelector('input[name="shopify_url"]').value;
             alert(`Scan gestart voor: ${url}\n\nJe wordt doorgestuurd naar de betaalpagina...`);
-            // Redirect to payment processor
         });
-
-        // Update urgency counter
-        function updateCounter() {
-            const urgencyElement = document.querySelector('.urgency-notice');
-            const match = urgencyElement.textContent.match(/Nog (\d+) scans/);
-            if (match) {
-                const current = parseInt(match[1]);
-                if (current > 1) {
-                    const newCount = Math.max(current - 1, 1);
-                    urgencyElement.innerHTML = urgencyElement.innerHTML.replace(/Nog \d+ scans/, `Nog ${newCount} scans`);
-                }
-            }
-        }
-        
-        // Update every 3 minutes
-        setInterval(updateCounter, 180000);
     </script>
 </body>
 </html>
