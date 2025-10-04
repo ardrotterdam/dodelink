@@ -96,6 +96,30 @@
             font-size: 1.5rem;
             cursor: pointer;
         }
+        /* FAQ Accordion Styles */
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-question {
+            cursor: pointer;
+            padding: 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+        .faq-question:hover {
+            color: #1976d2;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-answer.open {
+            max-height: 200px;
+            padding-bottom: 1rem;
+        }
         @media (max-width: 640px) {
             .nav-menu {
                 display: none;
@@ -136,6 +160,9 @@
                 text-align: center;
                 gap: 1rem;
             }
+            .faq-question {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
@@ -150,6 +177,7 @@
                         <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
                         <li><a href="#testimonials" class="nav-link text-gray-600">Reviews</a></li>
                         <li><a href="#proces" class="nav-link text-gray-600">Hoe het werkt</a></li>
+                        <li><a href="#faq" class="nav-link text-gray-600">FAQ</a></li>
                         <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition hover-scale">Start Scan</a></li>
                     </ul>
                     <div class="hamburger text-blue-600 md:hidden" onclick="toggleMenu()">☰</div>
@@ -273,6 +301,87 @@
         </div>
     </section>
 
+    <!-- New FAQ Section -->
+    <section class="faq bg-gray-100 py-12" id="faq">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Veelgestelde Vragen over Link Checker & SEO Tools</h2>
+            <div class="space-y-2">
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Wat is een link checker en hoe helpt het bij 404 errors?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Een link checker scant je website op kapotte links en 404 errors. Onze tool crawlt je Shopify winkel en fixt automatisch redirects, zodat bezoekers niet wegklikken door foutmeldingen.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Hoe stel ik redirects in voor Shopify?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Met onze redirects tool worden 301 redirects automatisch ingesteld voor dode links. Vul je URL in en we handelen de rest af in minder dan 10 minuten.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Wat is een backlink checker en heb ik die nodig?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Een backlink checker analyseert inkomende links naar je site. Voor Shopify optimalisatie focussen we op interne kapotte links, maar backlinks helpen je SEO ranking te verbeteren.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Hoe werkt een sitemap generator voor mijn webshop?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Onze sitemap generator creëert een XML sitemap voor Google Search Console. Dit helpt bij indexering en technische SEO voor je Shopify winkel.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Wat zijn canonical tags en waarom zijn ze belangrijk?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Canonical tags voorkomen dubbele content issues. Onze scan controleert en optimaliseert ze automatisch voor betere on-page SEO.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Hoe optimaliseer ik mijn Shopify voor mobile SEO?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Mobile SEO richt zich op responsive design en snelle laadtijden. Onze tool test en fixt mobile-vriendelijke links en redirects.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Wat is schema markup en hoe implementeer ik het?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Schema markup verbetert rich snippets in Google. We voegen het toe aan je Shopify site via ons rapport voor betere zichtbaarheid.
+                    </div>
+                </div>
+                <div class="faq-item bg-white p-4 rounded-lg shadow-md">
+                    <div class="faq-question text-lg font-semibold" onclick="toggleFaq(this)">
+                        Hoe controleer ik interne links in mijn webshop?
+                        <span class="text-blue-600 ml-2">▼</span>
+                    </div>
+                    <div class="faq-answer text-gray-600">
+                        Met onze interne links checker scannen we alle navigatie en productlinks. Kapotte interne links leiden tot hogere bounce rates.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section class="final-form bg-blue-50 py-12" id="scan-form">
         <div class="max-w-4xl mx-auto px-4 text-center">
             <h2 class="text-3xl font-bold mb-6 animate-fadeInUp">Eenmalige scan, nu je dodelinks gefixt</h2>
@@ -320,6 +429,14 @@
         function toggleMenu() {
             const menu = document.querySelector('.nav-menu');
             menu.classList.toggle('active');
+        }
+
+        // Toggle FAQ answers
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('span');
+            answer.classList.toggle('open');
+            icon.textContent = answer.classList.contains('open') ? '▲' : '▼';
         }
     </script>
 </body>
