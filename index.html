@@ -65,14 +65,14 @@
             height: 2px;
             bottom: -5px;
             left: 0;
-            background-color: #1976d2; /* Changed to blue */
+            background-color: #1976d2;
             transition: width 0.3s ease;
         }
         .nav-link:hover::after {
             width: 100%;
         }
         .nav-link:hover {
-            color: #1976d2; /* Changed to blue */
+            color: #1976d2;
             transform: translateY(-2px);
         }
         .nav-menu {
@@ -90,6 +90,53 @@
             text-decoration: none;
             font-weight: 500;
         }
+        /* Hamburger menu for mobile */
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        @media (max-width: 640px) {
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: white;
+                padding: 1rem;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+            .nav-menu.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .nav-link {
+                width: 100%;
+                padding: 0.5rem 0;
+            }
+            .hero-title {
+                font-size: 1.8rem;
+            }
+            .hero-subtitle, .hero-cta {
+                font-size: 0.9rem;
+            }
+            .stats {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .stat {
+                padding: 1rem;
+            }
+            .step {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
@@ -97,13 +144,16 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="#" class="text-2xl font-bold text-blue-600">🔗 DodeLink.nl</a>
-                <ul class="nav-menu">
-                    <li><a href="#probleem" class="nav-link text-gray-600">Het Probleem</a></li>
-                    <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
-                    <li><a href="#testimonials" class="nav-link text-gray-600">Reviews</a></li>
-                    <li><a href="#proces" class="nav-link text-gray-600">Hoe het werkt</a></li>
-                    <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition hover-scale">Start Scan</a></li>
-                </ul>
+                <div class="flex items-center">
+                    <ul class="nav-menu">
+                        <li><a href="#probleem" class="nav-link text-gray-600">Het Probleem</a></li>
+                        <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
+                        <li><a href="#testimonials" class="nav-link text-gray-600">Reviews</a></li>
+                        <li><a href="#proces" class="nav-link text-gray-600">Hoe het werkt</a></li>
+                        <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition hover-scale">Start Scan</a></li>
+                    </ul>
+                    <div class="hamburger text-blue-600 md:hidden" onclick="toggleMenu()">☰</div>
+                </div>
             </div>
         </div>
     </nav>
@@ -112,9 +162,9 @@
         <div class="hero-image max-w-4xl mx-auto mb-8 animate-fadeInUp">
             <img src="shopify-link-checker-404-fix.png" alt="Shopify link checker tool - 404 errors automatisch fixen en redirects instellen" class="w-full rounded-lg shadow-2xl hover-scale">
         </div>
-        <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">🚨 Jouw Shopify winkel verliest NU klanten door kapotte links</h1>
-        <p class="text-lg md:text-xl mb-6 animate-fadeInUp">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
-        <p class="text-md mb-8 animate-fadeInUp">Scan je winkel GRATIS en fix alle 404 errors in 10 minuten.</p>
+        <h1 class="hero-title text-4xl md:text-5xl font-bold mb-4 animate-fadeInUp">🚨 Jouw Shopify winkel verliest NU klanten door kapotte links</h1>
+        <p class="hero-subtitle text-lg md:text-xl mb-6 animate-fadeInUp">Google straft je af. Bezoekers lopen weg. Verkopen mislopen.</p>
+        <p class="hero-cta text-md mb-8 animate-fadeInUp">Scan je winkel GRATIS en fix alle 404 errors in 10 minuten.</p>
         <a href="#scan-form" class="inline-block bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 transition hover-scale animate-fadeInUp">Start Gratis Scan</a>
     </section>
 
@@ -249,6 +299,9 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                if (window.innerWidth <= 640) {
+                    toggleMenu(); // Close menu on mobile after click
+                }
             });
         });
 
@@ -261,6 +314,12 @@
             } else {
                 alert('Vul een geldige Shopify URL in.');
             }
+        }
+
+        // Toggle mobile menu
+        function toggleMenu() {
+            const menu = document.querySelector('.nav-menu');
+            menu.classList.toggle('active');
         }
     </script>
 </body>
