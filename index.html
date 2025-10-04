@@ -53,6 +53,43 @@
         .hover-scale:hover {
             transform: scale(1.05);
         }
+        .nav-link {
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #1976d2; /* Changed to blue */
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        .nav-link:hover {
+            color: #1976d2; /* Changed to blue */
+            transform: translateY(-2px);
+        }
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 1.5rem;
+        }
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+        }
+        .nav-menu a {
+            text-decoration: none;
+            font-weight: 500;
+        }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
@@ -60,12 +97,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <a href="#" class="text-2xl font-bold text-blue-600">🔗 DodeLink.nl</a>
-                <ul class="flex space-x-6">
-                    <li><a href="#probleem" class="text-gray-600 hover:text-blue-600 transition">Het Probleem</a></li>
-                    <li><a href="#oplossing" class="text-gray-600 hover:text-blue-600 transition">Oplossing</a></li>
-                    <li><a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition">Reviews</a></li>
-                    <li><a href="#proces" class="text-gray-600 hover:text-blue-600 transition">Hoe het werkt</a></li>
-                    <li><a href="#scan-form" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Start Scan</a></li>
+                <ul class="nav-menu">
+                    <li><a href="#probleem" class="nav-link text-gray-600">Het Probleem</a></li>
+                    <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
+                    <li><a href="#testimonials" class="nav-link text-gray-600">Reviews</a></li>
+                    <li><a href="#proces" class="nav-link text-gray-600">Hoe het werkt</a></li>
+                    <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition hover-scale">Start Scan</a></li>
                 </ul>
             </div>
         </div>
@@ -188,7 +225,7 @@
 
     <section class="final-form bg-blue-50 py-12" id="scan-form">
         <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold mb-6 animate-fadeInUp">Eenmalig betalen, voor altijd gefixt</h2>
+            <h2 class="text-3xl font-bold mb-6 animate-fadeInUp">Eenmalige scan, nu je dodelinks gefixt</h2>
             <p class="text-lg mb-8 animate-fadeInUp"><strong>Vul je Shopify URL in en we beginnen direct met de scan</strong></p>
             <div class="max-w-md mx-auto">
                 <div class="relative">
