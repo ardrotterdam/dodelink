@@ -15,7 +15,6 @@
   <meta property="og:description" content="Scan & fix 404's in 10 minuten. Automatische 301-redirects. €15 eenmalig." />
   <meta property="og:url" content="https://dodelink.com/" />
   <meta property="og:site_name" content="Dodelink" />
-  <!-- TODO: voor social previews liever een absolute URL, bv. https://<jouw-domein>/assets/hero-dodelink-1600.webp -->
   <meta property="og:image" content="./assets/hero-dodelink-1600.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -32,33 +31,63 @@
     .nav-link:hover:after{ width:100%; }
     .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
     .faq-answer.open{ max-height:240px; padding-bottom:.75rem; }
-    @media (max-width:640px){ .nav-menu{ display:none; } .nav-menu.active{ display:flex; } }
   </style>
+
+  <!-- Schema.org: Service + FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Service",
+    "name":"Dodelink – Shopify Link Checker",
+    "url":"https://dodelink.com/",
+    "provider":{"@type":"Organization","name":"Dodelink","url":"https://dodelink.com"},
+    "serviceType":"SEO / Redirects",
+    "areaServed":"NL",
+    "offers":{"@type":"Offer","price":"15.00","priceCurrency":"EUR","availability":"https://schema.org/InStock","url":"https://dodelink.com/#checkout"}
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"Hoe snel is het klaar?","acceptedAnswer":{"@type":"Answer","text":"Meestal binnen 10 minuten na betaling. Bij heel grote shops kan het iets langer duren."}},
+      {"@type":"Question","name":"Wat krijg ik?","acceptedAnswer":{"@type":"Answer","text":"Een PDF-rapport met alle gevonden kapotte links, een CSV met redirects, en – indien gewenst – direct ingestelde 301-redirects."}},
+      {"@type":"Question","name":"Hebben jullie toegang tot mijn shop nodig?","acceptedAnswer":{"@type":"Answer","text":"Liefst een tijdelijk staff-account. Zonder toegang leveren we je een CSV en heldere handleiding om zelf te importeren."}},
+      {"@type":"Question","name":"Krijg ik geld terug als het niet lukt?","acceptedAnswer":{"@type":"Answer","text":"Ja. Niet goed? Binnen 7 dagen je geld terug."}}
+    ]
+  }
+  </script>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50">
+
   <!-- NAV -->
   <nav class="bg-white shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="/" class="flex items-center gap-2">
-          <picture>
-            <img src="./assets/dodelink-logo-panic-contrast.webp"
-                 alt="Dodelink"
-                 class="h-8 md:h-10 lg:h-12 w-auto max-w-none flex-shrink-0 object-contain" />
-          </picture>
+          <img src="./assets/dodelink-logo-panic-contrast.webp" alt="Dodelink" class="h-8 md:h-10 lg:h-12 w-auto object-contain" />
         </a>
 
-        <div class="flex items-center">
-          <ul class="nav-menu flex gap-6 items-center">
-            <li><a href="#probleem" class="nav-link text-gray-600">Probleem</a></li>
-            <li><a href="#oplossing" class="nav-link text-gray-600">Oplossing</a></li>
-            <li><a href="#reviews" class="nav-link text-gray-600">Reviews</a></li>
-            <li><a href="#proces" class="nav-link text-gray-600">Werkwijze</a></li>
-            <li><a href="#faq" class="nav-link text-gray-600">FAQ</a></li>
-            <li><a href="#scan-form" class="nav-link bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 hover-scale">Start Scan</a></li>
-          </ul>
-          <button class="hamburger text-blue-600 md:hidden" aria-label="Open menu" onclick="toggleMenu()">☰</button>
-        </div>
+        <!-- Hamburger (mobile) -->
+        <button id="hamburger" class="md:hidden text-blue-600 text-2xl p-2" aria-label="Open menu" aria-controls="navMenu" aria-expanded="false">☰</button>
+
+        <!-- Menu -->
+        <ul id="navMenu"
+            class="hidden absolute right-4 top-16 w-64 bg-white border rounded-lg shadow-lg p-3 space-y-2
+                   md:static md:flex md:w-auto md:bg-transparent md:border-0 md:shadow-none md:p-0
+                   md:space-y-0 md:space-x-6">
+          <li><a href="#probleem" class="block px-3 py-2 text-gray-700 hover:text-blue-700">Probleem</a></li>
+          <li><a href="#oplossing" class="block px-3 py-2 text-gray-700 hover:text-blue-700">Oplossing</a></li>
+          <li><a href="#reviews"   class="block px-3 py-2 text-gray-700 hover:text-blue-700">Reviews</a></li>
+          <li><a href="#proces"    class="block px-3 py-2 text-gray-700 hover:text-blue-700">Werkwijze</a></li>
+          <li><a href="#faq"       class="block px-3 py-2 text-gray-700 hover:text-blue-700">FAQ</a></li>
+          <li>
+            <a href="#scan-form" class="block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+              Start Scan
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </nav>
@@ -144,7 +173,7 @@
   <!-- FAQ -->
   <section id="faq" class="bg-gray-100 py-12">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Veelgestelde vragen</h2>
+      <h2 class="text-3l font-bold text-center mb-8 animate-fadeInUp">Veelgestelde vragen</h2>
       <div class="space-y-2">
         <div class="bg-white p-4 rounded-lg shadow">
           <button class="faq-question text-left w-full text-lg font-semibold flex justify-between" onclick="toggleFaq(this)">Wat is een link checker en hoe helpt het?<span class="text-blue-600">▼</span></button>
@@ -203,42 +232,38 @@
   </footer>
 
   <script>
-    // Smooth scrolling (guard tegen lege of niet-bestaande anchors)
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const targetSel = a.getAttribute('href');
-        if (targetSel === '#') return; // ignore dummy links
-        const target = document.querySelector(targetSel);
+    // Mobile menu
+    const btn  = document.getElementById('hamburger');
+    const menu = document.getElementById('navMenu');
+    function openMenu(){ menu.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
+    function closeMenu(){ menu.classList.add('hidden');    btn.setAttribute('aria-expanded','false'); }
+    function toggleMenu(){ menu.classList.contains('hidden') ? openMenu() : closeMenu(); }
+    btn.addEventListener('click', toggleMenu);
+    document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
+
+    // Close on link click (before smooth scroll)
+    menu.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', ()=> closeMenu(), {capture:true}));
+
+    // Smooth scrolling (guard tegen lege anchors)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const sel = a.getAttribute('href');
+        if (sel === '#') return;
+        const target = document.querySelector(sel);
         if (!target) return;
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth' });
-        if (window.innerWidth <= 640) toggleMenu();
+        target.scrollIntoView({behavior:'smooth'});
       });
     });
 
-    // Mobile menu toggle
-    function toggleMenu(){
-      const m = document.querySelector('.nav-menu');
-      m.classList.toggle('active');
-      m.classList.toggle('flex');
-      m.classList.toggle('flex-col');
-    }
-
-    // FAQ toggle (pak de antwoord-div binnen hetzelfde kaartje)
+    // FAQ toggle (per kaart)
     function toggleFaq(btn){
       const card = btn.parentElement;
       const ans  = card.querySelector('.faq-answer');
       const icon = btn.querySelector('span');
       ans.classList.toggle('open');
       icon.textContent = ans.classList.contains('open') ? '▲' : '▼';
-    }
-
-    // Form handling (placeholder)
-    function handleSubmit(){
-      const el = document.querySelector('input[name="shopify_url"]');
-      const url = el.value.trim();
-      if (!url){ alert('Vul een geldige Shopify-URL in.'); return; }
-      alert(`Scan gestart voor: ${url}\n\nWe sturen je door naar de betaalpagina…`);
     }
 
     // Footer year
