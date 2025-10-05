@@ -31,6 +31,13 @@
     .nav-link:hover:after{ width:100%; }
     .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
     .faq-answer.open{ max-height:240px; padding-bottom:.75rem; }
+    /* nav underline animatie */
+.nav-link{position:relative;display:inline-block;padding-bottom:2px;transition:color .2s}
+.nav-link::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:#1d4ed8;transform:scaleX(0);transform-origin:left center;transition:transform .25s;border-radius:9999px}
+.nav-link:hover,.nav-link:focus-visible{color:#1d4ed8}
+.nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
+@media (prefers-reduced-motion:reduce){.nav-link,.nav-link::after{transition:none}}
+
   </style>
 
   <!-- Schema.org: Service + FAQ -->
