@@ -15,7 +15,6 @@
   <meta property="og:description" content="Scan & fix 404's in 10 minuten. Automatische 301-redirects. €15 eenmalig." />
   <meta property="og:url" content="https://dodelink.com/" />
   <meta property="og:site_name" content="Dodelink" />
-  <!-- TIP: voor social previews liever absolute URL naar je afbeelding -->
   <meta property="og:image" content="./assets/hero-dodelink-1600.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -29,12 +28,29 @@
     .hover-scale{ transition: transform .25s ease; }
     .hover-scale:hover{ transform: scale(1.04); }
 
-    /* NAV underline hover/focus */
-    .nav-link{position:relative;display:inline-block;padding-bottom:2px;transition:color .2s ease}
-    .nav-link::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:#1d4ed8;transform:scaleX(0);transform-origin:left center;transition:transform .25s ease;border-radius:9999px}
-    .nav-link:hover,.nav-link:focus-visible{color:#1d4ed8}
-    .nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
-    @media (prefers-reduced-motion:reduce){.nav-link,.nav-link::after{transition:none}}
+    /* NAV underline + hover (blauw + iets groter) */
+    .nav-link{
+      position:relative; display:inline-block; padding-bottom:2px;
+      transition: color .2s ease, transform .15s ease;
+    }
+    .nav-link::after{
+      content:""; position:absolute; left:0; bottom:-4px; height:2px; width:100%;
+      background:#1d4ed8; transform:scaleX(0); transform-origin:left center;
+      transition:transform .25s ease; border-radius:9999px;
+    }
+    .nav-link:hover,.nav-link:focus-visible{ color:#1d4ed8; transform:scale(1.04); }
+    .nav-link:hover::after,.nav-link:focus-visible::after{ transform:scaleX(1); }
+
+    /* Button-variant: tekst blijft wit, geen underline */
+    .btn-primary{ color:#fff !important; }
+    .btn-primary::after{ display:none; }
+    .btn-primary:hover, .btn-primary:focus-visible{
+      color:#fff !important; transform:scale(1.04);
+    }
+
+    @media (prefers-reduced-motion:reduce){
+      .nav-link,.nav-link::after,.btn-primary{ transition:none; }
+    }
 
     /* FAQ */
     .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
@@ -91,7 +107,7 @@
           <li><a href="#proces"    class="nav-link block px-3 py-2 text-gray-700">Werkwijze</a></li>
           <li><a href="#faq"       class="nav-link block px-3 py-2 text-gray-700">FAQ</a></li>
           <li>
-            <a href="#scan-form" class="nav-link block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            <a href="#scan-form" class="nav-link btn-primary block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
               Start Scan
             </a>
           </li>
@@ -253,7 +269,7 @@
     // Close dropdown on link click (before smooth scroll)
     menu.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', ()=> closeMenu(), {capture:true}));
 
-    // Smooth scrolling (guard tegen lege anchors)
+    // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const sel = a.getAttribute('href');
@@ -265,7 +281,7 @@
       });
     });
 
-    // FAQ toggle (per kaart)
+    // FAQ toggle
     function toggleFaq(btn){
       const card = btn.parentElement;
       const ans  = card.querySelector('.faq-answer');
