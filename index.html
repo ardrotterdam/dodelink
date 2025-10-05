@@ -6,7 +6,6 @@
   <title>Dodelink | Shopify Link Checker – 404-fixes & Redirects in 10 minuten</title>
   <meta name="description" content="Dodelink scant je Shopify-winkel, vindt kapotte links (404/410) en zet automatisch 301-redirects. Voorkom omzetverlies en SEO-schade. €15 eenmalig." />
   <meta name="keywords" content="dodelink, shopify link checker, 404 errors fixen, redirects instellen, shopify seo, kapotte links" />
-
   <!-- Canonical & Open Graph -->
   <link rel="canonical" href="https://dodelink.com/" />
   <meta property="og:locale" content="nl_NL" />
@@ -17,10 +16,8 @@
   <meta property="og:site_name" content="Dodelink" />
   <meta property="og:image" content="/assets/shopify-link-checker-404-fix.png" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <!-- Tailwind (CDN) -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
-
   <style>
     @keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: none;} }
     .animate-fadeInUp{ animation: fadeInUp .6s ease-out forwards; }
@@ -33,7 +30,6 @@
     .faq-answer.open{ max-height:240px; padding-bottom:.75rem; }
     @media (max-width:640px){ .nav-menu{ display:none; } .nav-menu.active{ display:flex; } }
   </style>
-
   <!-- Schema.org: Service + Offer + FAQ -->
   <script type="application/ld+json">
   {
@@ -65,7 +61,15 @@
   <nav class="bg-white shadow sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="#" class="text-2xl font-extrabold text-blue-600">🔗 Dodelink</a>
+       <a href="/" class="flex items-center gap-2">
+  <picture>
+    <!-- (optioneel) PNG fallback: zet hier je PNG-bestand als je dat later uploadt -->
+    <!-- <source type="image/png" srcset="/assets/dodelink-logo-panic-contrast-1500x260.png"> -->
+    <img src="/assets/dodelink-logo-panic-contrast.webp"
+         alt="Dodelink"
+         class="h-8 md:h-10 lg:h-12 w-auto max-w-none flex-shrink-0 object-contain" />
+  </picture>
+</a>
         <div class="flex items-center">
           <ul class="nav-menu flex gap-6 items-center">
             <li><a href="#probleem" class="nav-link text-gray-600">Probleem</a></li>
@@ -80,7 +84,6 @@
       </div>
     </div>
   </nav>
-
   <!-- HERO -->
   <section class="bg-gradient-to-r from-blue-600 to-blue-800 text-white text-center py-16">
     <div class="max-w-4xl mx-auto px-4">
@@ -91,14 +94,12 @@
       <a href="#scan-form" class="inline-block bg-white text-blue-700 px-6 py-3 rounded-lg font-semibold text-lg hover:bg-gray-100 hover-scale animate-fadeInUp">Start Gratis Scan</a>
     </div>
   </section>
-
   <!-- SOCIAL PROOF BAR -->
   <section class="max-w-4xl mx-auto px-4 py-10">
     <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-lg text-center animate-fadeInUp">
       <p class="text-gray-800"><strong class="text-yellow-700">Vandaag al 27 Shopify-winkels geholpen</strong> – Nog 8 scans beschikbaar</p>
     </div>
   </section>
-
   <!-- STATS -->
   <section class="bg-blue-50 py-10">
     <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -108,7 +109,6 @@
       <div class="bg-white p-6 rounded-lg shadow text-center animate-fadeInUp"><span class="text-3xl font-bold text-blue-600">4.8★</span><span class="block text-gray-600">Beoordeling</span></div>
     </div>
   </section>
-
   <!-- PROBLEEM -->
   <section id="probleem" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-4xl mx-auto px-4">
@@ -121,7 +121,6 @@
       </div>
     </div>
   </section>
-
   <!-- OPLOSSING -->
   <section id="oplossing" class="max-w-4xl mx-auto px-4 py-12">
     <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Dodelink: vindt & fixt 404/410 + zet 301-redirects</h2>
@@ -132,7 +131,6 @@
       <div class="bg-blue-50 p-6 rounded-lg border-l-4 border-yellow-500 animate-fadeInUp"><p><strong>Klaar binnen 10 minuten.</strong> Geen wachtrij. Direct resultaat.</p></div>
     </div>
   </section>
-
   <!-- REVIEWS -->
   <section id="reviews" class="bg-blue-50 py-12">
     <div class="max-w-4xl mx-auto px-4">
@@ -144,7 +142,6 @@
       </div>
     </div>
   </section>
-
   <!-- PROCES -->
   <section id="proces" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-12">
     <div class="max-w-4xl mx-auto px-4">
@@ -156,7 +153,6 @@
       </div>
     </div>
   </section>
-
   <!-- FAQ -->
   <section id="faq" class="bg-gray-100 py-12">
     <div class="max-w-4xl mx-auto px-4">
@@ -181,7 +177,6 @@
       </div>
     </div>
   </section>
-
   <!-- FORM / CHECKOUT -->
   <section id="scan-form" class="bg-blue-50 py-12">
     <div class="max-w-4xl mx-auto px-4 text-center">
@@ -197,7 +192,6 @@
       </div>
     </div>
   </section>
-
   <!-- FOOTER -->
   <footer class="bg-white border-t">
     <div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-6 text-sm">
@@ -217,24 +211,20 @@
       </div>
     </div>
   </footer>
-
   <script>
     // Smooth scrolling
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{ e.preventDefault(); document.querySelector(a.getAttribute('href')).scrollIntoView({behavior:'smooth'}); if(window.innerWidth<=640) toggleMenu(); });
     });
-
     // Mobile menu toggle
     function toggleMenu(){ const m=document.querySelector('.nav-menu'); m.classList.toggle('active'); m.classList.toggle('flex'); m.classList.toggle('flex-col'); }
-
     // FAQ toggle
     function toggleFaq(btn){ const ans=btn.parentElement.nextElementSibling || btn.nextElementSibling; const icon=btn.querySelector('span'); ans.classList.toggle('open'); icon.textContent= ans.classList.contains('open') ? '▲' : '▼'; }
-
     // Form handling (placeholder)
     function handleSubmit(){ const el=document.querySelector('input[name="shopify_url"]'); const url=el.value.trim(); if(!url){ alert('Vul een geldige Shopify-URL in.'); return; } alert(`Scan gestart voor: ${url}\n\nWe sturen je door naar de betaalpagina…`); }
-
     // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
+mijn faq doet het niet. plaats goede vragen en antwoorden. seo gericht. zet ook structured data voor seo in de code. go
