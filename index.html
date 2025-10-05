@@ -15,6 +15,7 @@
   <meta property="og:description" content="Scan & fix 404's in 10 minuten. Automatische 301-redirects. €15 eenmalig." />
   <meta property="og:url" content="https://dodelink.com/" />
   <meta property="og:site_name" content="Dodelink" />
+  <!-- TIP: voor social previews liever absolute URL naar je afbeelding -->
   <meta property="og:image" content="./assets/hero-dodelink-1600.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -22,22 +23,22 @@
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
 
   <style>
+    /* Animations / utilities */
     @keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: none;} }
     .animate-fadeInUp{ animation: fadeInUp .6s ease-out forwards; }
     .hover-scale{ transition: transform .25s ease; }
     .hover-scale:hover{ transform: scale(1.04); }
-    .nav-link{ position:relative; display:inline-block; }
-    .nav-link:after{ content:""; position:absolute; left:0; bottom:-6px; height:2px; width:0; background:#1d4ed8; transition:width .25s ease; }
-    .nav-link:hover:after{ width:100%; }
+
+    /* NAV underline hover/focus */
+    .nav-link{position:relative;display:inline-block;padding-bottom:2px;transition:color .2s ease}
+    .nav-link::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:#1d4ed8;transform:scaleX(0);transform-origin:left center;transition:transform .25s ease;border-radius:9999px}
+    .nav-link:hover,.nav-link:focus-visible{color:#1d4ed8}
+    .nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
+    @media (prefers-reduced-motion:reduce){.nav-link,.nav-link::after{transition:none}}
+
+    /* FAQ */
     .faq-answer{ max-height:0; overflow:hidden; transition:max-height .3s ease, padding .3s ease; }
     .faq-answer.open{ max-height:240px; padding-bottom:.75rem; }
-    /* nav underline animatie */
-.nav-link{position:relative;display:inline-block;padding-bottom:2px;transition:color .2s}
-.nav-link::after{content:"";position:absolute;left:0;bottom:-4px;height:2px;width:100%;background:#1d4ed8;transform:scaleX(0);transform-origin:left center;transition:transform .25s;border-radius:9999px}
-.nav-link:hover,.nav-link:focus-visible{color:#1d4ed8}
-.nav-link:hover::after,.nav-link:focus-visible::after{transform:scaleX(1)}
-@media (prefers-reduced-motion:reduce){.nav-link,.nav-link::after{transition:none}}
-
   </style>
 
   <!-- Schema.org: Service + FAQ -->
@@ -84,13 +85,13 @@
             class="hidden absolute right-4 top-16 w-64 bg-white border rounded-lg shadow-lg p-3 space-y-2
                    md:static md:flex md:w-auto md:bg-transparent md:border-0 md:shadow-none md:p-0
                    md:space-y-0 md:space-x-6">
-          <li><a href="#probleem" class="block px-3 py-2 text-gray-700 hover:text-blue-700">Probleem</a></li>
-          <li><a href="#oplossing" class="block px-3 py-2 text-gray-700 hover:text-blue-700">Oplossing</a></li>
-          <li><a href="#reviews"   class="block px-3 py-2 text-gray-700 hover:text-blue-700">Reviews</a></li>
-          <li><a href="#proces"    class="block px-3 py-2 text-gray-700 hover:text-blue-700">Werkwijze</a></li>
-          <li><a href="#faq"       class="block px-3 py-2 text-gray-700 hover:text-blue-700">FAQ</a></li>
+          <li><a href="#probleem" class="nav-link block px-3 py-2 text-gray-700">Probleem</a></li>
+          <li><a href="#oplossing" class="nav-link block px-3 py-2 text-gray-700">Oplossing</a></li>
+          <li><a href="#reviews"   class="nav-link block px-3 py-2 text-gray-700">Reviews</a></li>
+          <li><a href="#proces"    class="nav-link block px-3 py-2 text-gray-700">Werkwijze</a></li>
+          <li><a href="#faq"       class="nav-link block px-3 py-2 text-gray-700">FAQ</a></li>
           <li>
-            <a href="#scan-form" class="block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            <a href="#scan-form" class="nav-link block text-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
               Start Scan
             </a>
           </li>
@@ -180,7 +181,7 @@
   <!-- FAQ -->
   <section id="faq" class="bg-gray-100 py-12">
     <div class="max-w-4xl mx-auto px-4">
-      <h2 class="text-3l font-bold text-center mb-8 animate-fadeInUp">Veelgestelde vragen</h2>
+      <h2 class="text-3xl font-bold text-center mb-8 animate-fadeInUp">Veelgestelde vragen</h2>
       <div class="space-y-2">
         <div class="bg-white p-4 rounded-lg shadow">
           <button class="faq-question text-left w-full text-lg font-semibold flex justify-between" onclick="toggleFaq(this)">Wat is een link checker en hoe helpt het?<span class="text-blue-600">▼</span></button>
@@ -239,7 +240,7 @@
   </footer>
 
   <script>
-    // Mobile menu
+    // Mobile menu (dropdown)
     const btn  = document.getElementById('hamburger');
     const menu = document.getElementById('navMenu');
     function openMenu(){ menu.classList.remove('hidden'); btn.setAttribute('aria-expanded','true'); }
@@ -249,7 +250,7 @@
     document.addEventListener('click', (e)=>{ if(!menu.contains(e.target) && !btn.contains(e.target)) closeMenu(); });
     document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeMenu(); });
 
-    // Close on link click (before smooth scroll)
+    // Close dropdown on link click (before smooth scroll)
     menu.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', ()=> closeMenu(), {capture:true}));
 
     // Smooth scrolling (guard tegen lege anchors)
